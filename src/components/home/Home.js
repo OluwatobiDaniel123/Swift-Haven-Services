@@ -5,7 +5,6 @@ import Contact from "../articles/Contact";
 import CompanyHighlights from "../articles/CountUp";
 import Skills from "../articles/Skills";
 import OurSkillsPage from "../articles/OurSkillsPage";
-import Lane from "../articles/Lane";
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
       <Banner />
       <About />
       <Skills />
-      <Lane />
+
       <OurSkillsPage />
       <CompanyHighlights />
       <Contact />
