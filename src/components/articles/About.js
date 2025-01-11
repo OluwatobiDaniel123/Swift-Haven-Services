@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   const Div = styled.div`
+    height: 100vh;
     background: linear-gradient(
       135deg,
       rgb(46, 46, 240) 0%,
@@ -84,19 +85,7 @@ const About = () => {
   const Div3 = styled.div`
     width: 100%;
   `;
-  const settings = {
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-    arrows: false,
-    speed: 2000,
-    className: "center",
-    centerMode: true,
-    centerPadding: "-17px",
-  };
+
   const Div4 = styled.div`
     // padding: 5px;
     width: 500px;
@@ -134,29 +123,6 @@ const About = () => {
           </P>
         </Div2>
       </MissionTextWrapper>
-
-      <Div3 className="slider-container">
-        <Slider {...settings}>
-          <Div4>
-            <Img src={slide1} loading="lazy" alt="img" />
-          </Div4>
-          <Div4>
-            <Img src={slide2} loading="lazy" alt="img" />
-          </Div4>
-          <Div4>
-            <Img src={slide16} loading="lazy" alt="img" />
-          </Div4>
-          <Div4>
-            <Img src={slide15} loading="lazy" alt="img" />
-          </Div4>{" "}
-          <Div4>
-            <Img src={slide14} loading="lazy" alt="img" />
-          </Div4>{" "}
-          <Div4>
-            <Img src={slide13} loading="lazy" alt="img" />
-          </Div4>
-        </Slider>
-      </Div3>
     </Div>
   );
 };

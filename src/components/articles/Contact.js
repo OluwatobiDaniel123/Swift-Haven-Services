@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
-import { toast, ToastContainer } from "react-toastify";
 
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
@@ -112,11 +111,10 @@ const Contact = () => {
         "uDj1nlX9BVEqunnYs"
       );
       console.log(result.text);
-      toast.success("Message sent successfully!");
+
       form.current.reset();
     } catch (error) {
       console.error(error.text);
-      toast.error("Failed to send the message. Please try again.");
     } finally {
       setLoading(false);
     }
