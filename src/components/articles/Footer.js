@@ -100,7 +100,6 @@ const Footer = () => {
         <FooterSection>
           <FooterHeader>Inside Swift Haven Services</FooterHeader>
           <FooterLink href="/About">About</FooterLink>
-          <FooterLink href="/Portfolio">Portfolio</FooterLink>
           <FooterLink href="/Contact">Contact</FooterLink>
           <FooterLink href="#">Careers</FooterLink>
           <FooterLink href="#">Blog</FooterLink>

@@ -12,7 +12,6 @@ const Home = () => {
       <Banner />
       <About />
       <Skills />
-
       <OurSkillsPage />
       <CompanyHighlights />
       <Contact />

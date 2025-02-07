@@ -81,7 +81,7 @@ const SideNav = styled.div`
   position: fixed;
   top: 0;
   left: ${({ show }) => (show ? "0" : "-100%")};
-  width: 70%;
+  width: 80%;
   height: 100vh;
   background-color: #333;
   color: white;
