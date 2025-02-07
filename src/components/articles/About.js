@@ -111,15 +111,15 @@ const About = () => {
 
   return (
     <Div>
-      <H1>What We Do</H1>
+      <H1>About Us</H1>
 
       <MissionTextWrapper>
         <Div2>
           <P>
-            Welcome to Swift Haven Services, We are a Packing and Moving company
-            that offer varied moving services such as home and office moving
-            service, haulage transportation and domestic door to door delivery
-            services.
+            At Swift Haven Service, we provide professional and reliable moving
+            solutions tailored to meet your needs. Whether you're relocating
+            within the city, moving your office, or transporting specialized
+            items, we ensure a seamless experience.
           </P>
         </Div2>
       </MissionTextWrapper>

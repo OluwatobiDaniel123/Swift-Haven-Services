@@ -24,7 +24,7 @@ const Box = styled.div`
 `;
 
 const LogoImage = styled.img`
-  height: 60px;
+  height: 50px;
   background: #f9f9f9;
   border-radius: 50%;
   box-shadow: 0 0 0 0.5px lightblue;
@@ -144,7 +144,11 @@ const Header = () => {
     <HeaderContainer>
       <Box>
         <Link to="/">
-          <h1>SHS</h1>
+          <LogoImage
+            src="https://res.cloudinary.com/dbcygr0pi/image/upload/v1738964142/Logo124_-_Made_with_PosterMyWall_bd7hli.png"
+            loading="eager"
+            alt="logo-image"
+          />
         </Link>
 
         <HeaderUl>

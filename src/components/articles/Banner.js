@@ -2,28 +2,40 @@ import React from "react";
 import { Carousel } from "antd";
 import "./Banner.css";
 const contentStyle = {
-  height: "160px",
+  // height: "160px",
   color: "#fff",
-  lineHeight: "160px",
+  // lineHeight: "160px",
   textAlign: "center",
-  height: "100vh",
+  // height: "100vh",
 };
 
 const Banner = () => (
   <Carousel autoplay>
-    <div>
-      <h3 className="carousel" style={contentStyle}>
-        1
+    <div className="div">
+      <h3 className="h3">
+        Swift Hoven Services
+        <p>
+          Moving from house to house or city to city by road you are at the
+          right place.
+        </p>
       </h3>
     </div>
-    <div>
-      <h3 className="carousel" style={contentStyle}>
-        2
+    <div className="div">
+      <h3 className="h3">
+        Swift Hoven Services
+        <p>
+          Moving from house to house or city to city by road you are at the
+          right place.
+        </p>
       </h3>
     </div>
-    <div>
-      <h3 className="carousel" style={contentStyle}>
-        3
+    <div className="div">
+      <h3 className="h3">
+        Swift Hoven Services
+        <p>
+          Moving from house to house or city to city by road you are at the
+          right place.
+        </p>
       </h3>
     </div>
   </Carousel>

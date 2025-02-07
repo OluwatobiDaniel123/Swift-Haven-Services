@@ -78,7 +78,11 @@ const Footer = () => {
       <FooterContent>
         <FooterSection>
           <FooterHeader>
-            <h1>SHS</h1>
+            <LogoImage
+              src="https://res.cloudinary.com/dbcygr0pi/image/upload/v1738964142/Logo124_-_Made_with_PosterMyWall_bd7hli.png"
+              loading="eager"
+              alt="logo-image"
+            />
           </FooterHeader>
           <FooterText>Lagos State</FooterText>
           <FooterText>7b. Parklane, Apapa, Lagos</FooterText>
@@ -87,9 +91,9 @@ const Footer = () => {
 
         <FooterSection>
           <FooterHeader>Services</FooterHeader>
-          <FooterLink href="#">Residential/Local Move</FooterLink>
-          <FooterLink href="#">Commercial/Office Move</FooterLink>
-          <FooterLink href="#">Inter-State /Long Distance Move</FooterLink>
+          <FooterLink href="#">Residential & Local Move</FooterLink>
+          <FooterLink href="#">Commercial & Office Move</FooterLink>
+          <FooterLink href="#">Inter-State & Long Distance Move</FooterLink>
           <FooterLink href="#">Bike Delivery Services</FooterLink>
           <FooterLink href="#">Toying vehicle</FooterLink>
         </FooterSection>
