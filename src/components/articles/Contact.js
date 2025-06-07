@@ -1,105 +1,131 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
-
-import { MdOutlineMailOutline } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaEnvelopeOpenText } from "react-icons/fa";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-const ContactSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(
-    135deg,
-    rgb(46, 46, 240) 0%,
-    rgb(74, 140, 255) 100%
-  );
-  padding: 30px 15px;
-`;
-
-const ContactContainer = styled.div`
+const ContactLinks = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
   gap: 2rem;
+  margin-top: 2rem;
 
-  @media (max-width: 769px) {
-    flex-direction: column;
-  }
-`;
-
-const ContactForm = styled.form`
-  width: 100%;
-  max-width: 500px;
-  padding: 15px;
-  border-radius: 7px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: center;
-
-  h2 {
-    font-variant: small-caps;
-    font-size: 30px;
-    color: black;
-    border-bottom: 2px solid rgb(0, 195, 255);
-    margin-bottom: 1rem;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 1.3px;
-    border-radius: 0.5rem;
-    background: #f9f9f9;
-    border: 2px solid lightblue;
-    resize: none;
-    color: black;
+  a {
+    color: #003366;
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
 
     &:hover {
-      border-color: rgb(0, 195, 255);
+      color: #0066cc;
     }
+  }
+`;
+const Section = styled.section`
+  background: #f0f8ff;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-    transition: all 0.3s ease-in-out;
+const Title = styled.h2`
+  font-size: 2.5rem;
+  font-variant: small-caps;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #003366;
+`;
+
+const SubTitle = styled.p`
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 3rem;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+`;
+
+const FormWrapper = styled.form`
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #cde3f8;
+  border-radius: 6px;
+  background: #f9fcff;
+  &:focus {
+    border-color: #3399ff;
+    outline: none;
   }
 `;
 
-const ContactButton = styled.button`
-  background: linear-gradient(45deg, #007bff, #00d4ff);
+const Textarea = styled.textarea`
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  height: 150px;
+  border: 1px solid #cde3f8;
+  border-radius: 6px;
+  resize: vertical;
+  background: #f9fcff;
+  margin-bottom: 1rem;
+  &:focus {
+    border-color: #3399ff;
+    outline: none;
+  }
+`;
 
+const SubmitButton = styled.button`
+  background: #0066cc;
   color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  width: 70%;
-  border-radius: 10px;
-  outline: none;
-  cursor: pointer;
+  padding: 0.9rem;
+  font-size: 1rem;
   border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #004c99;
   }
 
   &:disabled {
-    background: grey;
+    background: gray;
     cursor: not-allowed;
   }
 `;
 
-const Map = styled.iframe`
-  border-radius: 5px;
+const AnimationBox = styled.div`
+  max-width: 500px;
   width: 100%;
-  height: 450px;
+`;
+
+const Map = styled.iframe`
+  margin-top: 4rem;
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 10px;
 `;
 
 const Contact = () => {
@@ -111,63 +137,71 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const result = await emailjs.sendForm(
+      await emailjs.sendForm(
         "service_qh08omd",
         "template_icla7gq",
         form.current,
         "uDj1nlX9BVEqunnYs"
       );
-      console.log(result.text);
-
       form.current.reset();
     } catch (error) {
-      console.error(error.text);
+      console.error("Error sending message:", error.text);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <ContactSection>
-      <ContactContainer>
-        <DotLottieReact
-          src="https://lottie.host/113aa8aa-b464-41a9-be0f-906d7a2d63b8/SSzUfeyU3r.lottie"
-          loop
-          autoplay
-          style={{
-            width: "100%",
-            maxWidth: "500px",
-            height: "auto",
-          }}
-        />
-        <ContactForm ref={form} onSubmit={sendEmail}>
-          <h2>Contact Us</h2>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Full Name"
-            required
+    <Section>
+      <Title>Contact Us</Title>
+      <SubTitle>
+        We're here to help and answer any questions you might have
+      </SubTitle>
+      <ContentWrapper>
+        <AnimationBox>
+          <DotLottieReact
+            src="https://lottie.host/113aa8aa-b464-41a9-be0f-906d7a2d63b8/SSzUfeyU3r.lottie"
+            autoplay
+            loop
+            style={{ width: "100%" }}
           />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea
-            rows="7"
-            name="message"
-            placeholder="Your Message"
-            required
-          />
+        </AnimationBox>
 
-          <ContactButton type="submit" disabled={loading}>
+        <FormWrapper ref={form} onSubmit={sendEmail}>
+          <Input type="text" name="name" placeholder="Your Name" required />
+          <Input type="email" name="email" placeholder="Your Email" required />
+          <Textarea name="message" placeholder="Your Message" required />
+          <SubmitButton type="submit" disabled={loading}>
             {loading ? "Sending..." : "Send Message"}
-          </ContactButton>
-        </ContactForm>
-      </ContactContainer>
+          </SubmitButton>
+        </FormWrapper>
+      </ContentWrapper>
+
+      <ContactLinks>
+        <a
+          href="mailto:youremail@example.com"
+          title="Send Email"
+          aria-label="Send Email"
+        >
+          <FaEnvelopeOpenText />
+        </a>
+        <a
+          href="https://wa.me/2349021232651"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Chat on WhatsApp"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp />
+        </a>
+      </ContactLinks>
+
       <Map
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.05067748396!2d-74.3091773393739!3d40.69719333811824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sng!4v1738830453821!5m2!1sen!2sng"
-        allowfullscreen
-        loading="eager"
-        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63432.48552128197!2d3.322643733452314!3d6.454279235478465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8bbcba8a7fef%3A0xa70f492d44afb0b0!2sApapa%2C%20Lagos!5e0!3m2!1sen!2sng!4v1749337574842!5m2!1sen!2sng"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
       />
-    </ContactSection>
+    </Section>
   );
 };
 

@@ -1,83 +1,122 @@
 import React from "react";
 import styled from "styled-components";
+import { FiUsers, FiAward, FiSettings, FiTrendingUp } from "react-icons/fi";
 
-const PageContainer = styled.div`
-  padding: 20px;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(
-    135deg,
-    rgb(46, 46, 240) 0%,
-    rgb(74, 140, 255) 100%
-  );
+const PageWrapper = styled.div`
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: #f9fafc;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+`;
+
+const Title = styled.h1`
+  font-weight: 900;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #003366;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+`;
+
+const CardsGrid = styled.div`
+  display: grid;
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+`;
+
+const Card = styled.div`
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 14px 28px rgb(0 51 102 / 0.1);
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 20px 40px rgb(0 51 102 / 0.2);
+  }
+`;
+
+const IconContainer = styled.div`
+  background: #004080;
+  border-radius: 50%;
+  padding: 16px;
+  display: inline-flex;
   color: white;
+  font-size: 28px;
+  margin-bottom: 22px;
 `;
 
-const Section = styled.div`
-  margin: 40px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+const CardTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #001f4d;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 24px;
-  color: #0055ff;
-`;
-
-const SectionContent = styled.p`
-  font-size: 18px;
-  line-height: 1.6;
-  color: black;
+const CardText = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #444;
 `;
 
 const OurSkillsPage = () => {
   return (
-    <PageContainer>
-      <h1
-        style={{
-          fontVariant: "small-caps",
-          textAlign: "center",
-          borderBottom: "1px solid rgb(0, 195, 255)",
-        }}
-      >
-        Our Philosophy and Goals
-      </h1>
-      <Section>
-        <SectionTitle>Customer-Centric Approach</SectionTitle>
-        <SectionContent>
-          We prioritize creating seamless, stress-free moving experiences for
-          our clients. Our services are designed with attention to detail,
-          ensuring safety, efficiency, and reliability at every step.
-        </SectionContent>
-      </Section>
-      <Section>
-        <SectionTitle>Commitment to Excellence</SectionTitle>
-        <SectionContent>
-          We believe in combining innovative practices with a personal touch.
-          From precise logistics to customer support, we aim to exceed
-          expectations and handle every move as if it were our own.
-        </SectionContent>
-      </Section>
-      <Section>
-        <SectionTitle>Challenges and Solutions</SectionTitle>
-        <SectionContent>
-          Overcoming logistical complexities and ensuring timely delivery are
-          challenges we face daily. By employing advanced tools, strategic
-          planning, and a dedicated team, we provide solutions that make the
-          moving process smooth and hassle-free.
-        </SectionContent>
-      </Section>
-      <Section>
-        <SectionTitle>Future Goals</SectionTitle>
-        <SectionContent>
-          Our goal is to expand our services, embracing technology to enhance
-          efficiency and customer satisfaction. We are committed to evolving
-          with industry trends, ensuring that our clients always receive
-          top-tier moving solutions tailored to their needs.
-        </SectionContent>
-      </Section>
-    </PageContainer>
+    <PageWrapper>
+      <Title>Our Philosophy &amp; Goals</Title>
+
+      <CardsGrid>
+        <Card>
+          <IconContainer>
+            <FiUsers />
+          </IconContainer>
+          <CardTitle>Customer-Centric Approach</CardTitle>
+          <CardText>
+            We prioritize seamless, stress-free moving experiences designed with
+            care, ensuring safety, efficiency, and reliability at every step.
+          </CardText>
+        </Card>
+
+        <Card>
+          <IconContainer>
+            <FiAward />
+          </IconContainer>
+          <CardTitle>Commitment to Excellence</CardTitle>
+          <CardText>
+            Combining innovation with a personal touch, we handle every move as
+            if it were our own — striving to exceed expectations.
+          </CardText>
+        </Card>
+
+        <Card>
+          <IconContainer>
+            <FiSettings />
+          </IconContainer>
+          <CardTitle>Challenges &amp; Solutions</CardTitle>
+          <CardText>
+            Tackling logistics and timing challenges with strategic planning and
+            advanced tools, we deliver hassle-free moving services.
+          </CardText>
+        </Card>
+
+        <Card>
+          <IconContainer>
+            <FiTrendingUp />
+          </IconContainer>
+          <CardTitle>Future Goals</CardTitle>
+          <CardText>
+            Expanding our offerings and embracing cutting-edge tech, we commit
+            to evolving and delivering top-tier, tailored moving solutions.
+          </CardText>
+        </Card>
+      </CardsGrid>
+    </PageWrapper>
   );
 };
 

@@ -2,130 +2,123 @@ import React from "react";
 import styled from "styled-components";
 import CountUp from "react-countup";
 import {
-  FaCode,
-  FaCaravan,
-  FaPeopleCarry,
-  FaGlobe,
   FaCalendarAlt,
+  FaPeopleCarry,
+  FaCaravan,
+  FaGlobeAfrica,
 } from "react-icons/fa";
 
-const HighlightsSection = styled.section`
+const Section = styled.section`
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #004aad, #50a8ff);
+  color: white;
   text-align: center;
-  padding: 50px;
-  background-color: #f9f9f9;
-  @media (max-width: 769px) {
-    padding: 20px;
-  }
 `;
 
-const Title = styled.h1`
-  font-size: 30px;
-  width: 100%;
+const Heading = styled.h1`
+  font-size: 36px;
   font-variant: small-caps;
-  border-bottom: 1px solid rgb(0, 195, 255);
-
-  color: #333;
   margin-bottom: 10px;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 20px;
-  width: 100%;
-
-  font-variant: small-caps;
-
-  color: #666;
+const SubHeading = styled.p`
+  font-size: 18px;
   margin-bottom: 40px;
+  color: #cde6ff;
 `;
 
-const HighlightsGrid = styled.div`
-  display: flex;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
 `;
 
-const HighlightCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 250px;
-
-  transition: transform 0.3s;
+const Card = styled.div`
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 
   &:hover {
     transform: translateY(-10px);
   }
-  @media (max-width: 769px) {
-    width: 95%;
+`;
+
+const IconBox = styled.div`
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 15px;
+  animation: pop 0.6s ease forwards;
+
+  @keyframes pop {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 `;
 
-const IconWrapper = styled.div`
-  font-size: 3rem;
-  color: #007bff;
-  margin-bottom: 15px;
-`;
-
-const Number = styled.h3`
-  font-size: 2rem;
-  color: #333;
+const Count = styled.h2`
+  font-size: 32px;
   margin: 10px 0;
+  color: #ffffff;
 `;
 
 const Label = styled.p`
-  font-size: 1rem;
-  color: #666;
+  font-size: 16px;
+  color: #e2eaff;
 `;
 
 const CompanyHighlights = () => {
   return (
-    <HighlightsSection>
-      <Title>Our Strengths That Set Us Apart</Title>
-      <Subtitle>The Most preferable Moving Company in Nigeria</Subtitle>
-      <HighlightsGrid>
-        <HighlightCard>
-          <IconWrapper>
+    <Section>
+      <Heading>Why Choose Us</Heading>
+      <SubHeading>Built on trust, reliability, and nationwide reach</SubHeading>
+      <Grid>
+        <Card>
+          <IconBox>
             <FaCalendarAlt />
-          </IconWrapper>
-          <Number>
-            <CountUp end={13} />+
-          </Number>
-          <Label>Years of Trust</Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
+          </IconBox>
+          <Count>
+            <CountUp end={13} duration={2} />+
+          </Count>
+          <Label>Years of Experience</Label>
+        </Card>
+        <Card>
+          <IconBox>
             <FaPeopleCarry />
-          </IconWrapper>
-          <Number>
-            <CountUp end={30} />+
-          </Number>
-          <Label>Trained Manpower</Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
+          </IconBox>
+          <Count>
+            <CountUp end={30} duration={2} />+
+          </Count>
+          <Label>Professional Staff</Label>
+        </Card>
+        <Card>
+          <IconBox>
             <FaCaravan />
-          </IconWrapper>
-          <Number>
-            <CountUp end={1000} />+
-          </Number>
-          <Label>Annual Moves</Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
-            <FaGlobe />
-          </IconWrapper>
-          <Number>
-            <CountUp end={36} />+
-          </Number>
-          <Label>Moves Nationwide</Label>
-        </HighlightCard>
-      </HighlightsGrid>
-    </HighlightsSection>
+          </IconBox>
+          <Count>
+            <CountUp end={1000} duration={2} />+
+          </Count>
+          <Label>Moves Completed Per Year</Label>
+        </Card>
+        <Card>
+          <IconBox>
+            <FaGlobeAfrica />
+          </IconBox>
+          <Count>
+            <CountUp end={36} duration={2} />+
+          </Count>
+          <Label>States Reached</Label>
+        </Card>
+      </Grid>
+    </Section>
   );
 };
 

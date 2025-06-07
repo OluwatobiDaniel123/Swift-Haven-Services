@@ -1,160 +1,138 @@
 import React from "react";
 import styled from "styled-components";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
-import Img from "../../assets/logo.png";
-const FooterContainer = styled.footer`
-  background: #000;
-  color: #fff;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
+
+const FooterWrapper = styled.footer`
+  background: #0b0c10;
+  color: #cfd8dc;
+  padding: 60px 20px 30px;
 `;
 
-const FooterContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+const FooterGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
 `;
 
-const FooterSection = styled.div`
-  flex: 1;
-  min-width: 200px;
-  margin: 20px;
-`;
-
-const FooterHeader = styled.h3`
-  margin-bottom: 10px;
+const Column = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
 `;
 
-const FooterText = styled.p`
-  margin: 5px 0;
-  padding: 6px;
+const Logo = styled.img`
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #00c3ff;
+  background: white;
+  margin-bottom: 15px;
 `;
 
-const FooterLink = styled.a`
-  width: 200px;
+const Title = styled.h4`
+  font-size: 18px;
+  margin-bottom: 15px;
   color: #fff;
+`;
+
+const Link = styled.a`
   text-decoration: none;
-  margin: 5px 0;
-  display: block;
-  outline: none;
-  padding: 1px;
+  color: #cfd8dc;
+  margin: 6px 0;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: lightblue;
+    color: #00c3ff;
   }
 `;
 
-const SocialIcons = styled.div`
+const Socials = styled.div`
   display: flex;
-  margin-top: 10px;
+  gap: 15px;
+  margin-top: 20px;
 
   a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 20px;
+    color: #cfd8dc;
+    font-size: 18px;
+    transition: color 0.3s ease;
 
     &:hover {
-      color: lightblue;
+      color: #00c3ff;
     }
   }
 `;
-const LogoImage = styled.img`
-  height: 60px;
-  background: #f9f9f9;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px lightblue;
+
+const FooterBottom = styled.div`
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #00c3ff;
+  font-size: 14px;
+  margin-top: 40px;
 `;
 
 const Footer = () => {
   return (
-    <FooterContainer>
-      <FooterContent>
-        <FooterSection>
-          <FooterHeader>
-            <LogoImage
-              src="https://res.cloudinary.com/dbcygr0pi/image/upload/v1738964142/Logo124_-_Made_with_PosterMyWall_bd7hli.png"
-              loading="eager"
-              alt="logo-image"
-            />
-          </FooterHeader>
-          <FooterText>Lagos State</FooterText>
-          <FooterText>7b. Parklane, Apapa, Lagos</FooterText>
-          <FooterText>+234 (0)902 7503 086</FooterText>
-        </FooterSection>
+    <FooterWrapper>
+      <FooterGrid>
+        <Column>
+          <Logo
+            src="https://res.cloudinary.com/dbcygr0pi/image/upload/v1738964142/Logo124_-_Made_with_PosterMyWall_bd7hli.png"
+            alt="Swift Haven Logo"
+            loading="eager"
+          />
+          <p>Lagos State</p>
+          <p>7b Parklane, Apapa</p>
+          <p>+234 902 123 2651</p>
+        </Column>
 
-        <FooterSection>
-          <FooterHeader>Services</FooterHeader>
-          <FooterLink href="#">Residential & Local Move</FooterLink>
-          <FooterLink href="#">Commercial & Office Move</FooterLink>
-          <FooterLink href="#">Inter-State & Long Distance Move</FooterLink>
-          <FooterLink href="#">Bike Delivery Services</FooterLink>
-          <FooterLink href="#">Toying vehicle</FooterLink>
-        </FooterSection>
-        <FooterSection>
-          <FooterHeader>Inside Swift Haven Services</FooterHeader>
-          <FooterLink href="/About">About</FooterLink>
-          <FooterLink href="/Contact">Contact</FooterLink>
-          <FooterLink href="#">Careers</FooterLink>
-          <FooterLink href="#">Blog</FooterLink>
-        </FooterSection>
-        <FooterSection>
-          <FooterHeader>Legal</FooterHeader>
-          <FooterLink href="#">Terms Of Use</FooterLink>
-          <FooterLink href="#">Privacy Policy</FooterLink>
-          <FooterLink href="#">Cookie Policy</FooterLink>
-        </FooterSection>
-      </FooterContent>
-      <SocialIcons>
-        <FooterLink
-          style={{ width: "auto" }}
-          href="https://www.facebook.com"
-          aria-label="Facebook"
-        >
-          <FaFacebook />
-        </FooterLink>
-        <FooterLink
-          style={{ width: "auto" }}
-          href="https://www.twitter.com"
-          aria-label="Twitter"
-        >
-          <FaTwitter />
-        </FooterLink>
-        <FooterLink
-          style={{ width: "auto" }}
-          href="https://www.linkedin.com"
-          aria-label="LinkedIn"
-        >
-          <FaLinkedin />
-        </FooterLink>
-        <FooterLink
-          style={{ width: "auto" }}
-          href="https://www.instagram.com"
-          aria-label="Instagram"
-        >
-          <FaInstagram />
-        </FooterLink>
-      </SocialIcons>
+        <Column>
+          <Title>Quick Links</Title>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="#">Careers</Link>
+          <Link href="#">Blog</Link>
+        </Column>
 
-      <div
-        style={{
-          borderTop: "1px solid rgb(0, 195, 255)",
-          width: "100%",
-          textAlign: "center",
-        }}
-      >
-        <FooterText style={{ marginTop: "20px" }}>
-          &copy; {new Date().getFullYear()} Swift Haven Services. All rights
-          reserved.
-        </FooterText>
-      </div>
-    </FooterContainer>
+        <Column>
+          <Title>Services</Title>
+          <Link href="#">Residential & Local Move</Link>
+          <Link href="#">Commercial & Office Move</Link>
+          <Link href="#">Long Distance Move</Link>
+          <Link href="#">Bike Delivery</Link>
+          <Link href="#">Towing Vehicle</Link>
+        </Column>
+
+        <Column>
+          <Title>Connect with Us</Title>
+          <Socials>
+            <a href="https://www.facebook.com" aria-label="Facebook">
+              <FaFacebookF />
+            </a>
+            <a href="https://www.instagram.com" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+            <a href="https://www.twitter.com" aria-label="Twitter">
+              <FaTwitter />
+            </a>
+            <a href="https://www.linkedin.com" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </a>
+          </Socials>
+        </Column>
+      </FooterGrid>
+
+      <FooterBottom>
+        &copy; {new Date().getFullYear()} Swift Haven Services. All rights
+        reserved.
+      </FooterBottom>
+    </FooterWrapper>
   );
 };
 

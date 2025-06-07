@@ -36,7 +36,7 @@ const HeaderUl = styled.ul`
   padding: 0;
   margin: 0;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
 
   @media (max-width: 768px) {
     display: none;
@@ -111,22 +111,6 @@ const SideNavItem = styled(Link)`
   }
 `;
 
-const QuoteButton = styled.button`
-  background: linear-gradient(45deg, #007bff, #00d4ff);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-`;
-
 const Header = () => {
   const location = useLocation();
   const [activeNav, setActiveNav] = useState(location.pathname);
@@ -157,9 +141,6 @@ const Header = () => {
               <Link to={path}>{path === "/" ? "Home" : path.slice(1)}</Link>
             </NavItem>
           ))}
-          <Link to="/request_quote">
-            <QuoteButton>Get a Quote</QuoteButton>
-          </Link>
         </HeaderUl>
 
         <NavIcon onClick={toggleNav}>
@@ -178,9 +159,6 @@ const Header = () => {
             {path === "/" ? "Home" : path.slice(1)}
           </SideNavItem>
         ))}
-        <Link to="/request_quote">
-          <QuoteButton>Get a Quote</QuoteButton>
-        </Link>
       </SideNav>
     </HeaderContainer>
   );

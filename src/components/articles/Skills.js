@@ -1,139 +1,123 @@
 import React from "react";
 import styled from "styled-components";
-import CountUp from "react-countup";
-import {
-  FaDoorOpen,
-  FaCaravan,
-  FaNode,
-  FaCalendarAlt,
-  FaHome,
-} from "react-icons/fa";
+import { FaDoorOpen, FaCaravan, FaHome } from "react-icons/fa";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { SiMongodb } from "react-icons/si";
-const HighlightsSection = styled.section`
+
+const ServicesHighlights = () => {
+  return (
+    <Wrapper>
+      <Heading>What We Do Best</Heading>
+      <Subheading>Reliable, Fast & Affordable Moving Solutions</Subheading>
+
+      <CardsContainer>
+        <Card>
+          <Icon>
+            <FaHome />
+          </Icon>
+          <CardTitle>Home Moving</CardTitle>
+          <CardDescription>
+            Relocate effortlessly within the city or to another state. We make
+            home transitions smooth and safe.
+          </CardDescription>
+        </Card>
+
+        <Card>
+          <Icon>
+            <FaCaravan />
+          </Icon>
+          <CardTitle>Haulage Transport</CardTitle>
+          <CardDescription>
+            Need to transport heavy items or move inter-state? We’ve got the
+            right vehicles and expertise.
+          </CardDescription>
+        </Card>
+
+        <Card>
+          <Icon>
+            <HiOutlineOfficeBuilding />
+          </Icon>
+          <CardTitle>Office Relocation</CardTitle>
+          <CardDescription>
+            Move your office equipment and furniture with zero downtime and full
+            security.
+          </CardDescription>
+        </Card>
+
+        <Card>
+          <Icon>
+            <FaDoorOpen />
+          </Icon>
+          <CardTitle>Door-to-Door Delivery</CardTitle>
+          <CardDescription>
+            We deliver straight to your doorstep — safe, fast, and right on
+            time.
+          </CardDescription>
+        </Card>
+      </CardsContainer>
+    </Wrapper>
+  );
+};
+
+export default ServicesHighlights;
+
+const Wrapper = styled.section`
+  background-color: #f0f6ff;
+  padding: 80px 20px;
   text-align: center;
-  padding: 50px;
-  background-color: #f9f9f9;
-  @media (max-width: 769px) {
-    padding: 20px;
-  }
 `;
 
-const Title = styled.h1`
-  font-size: 30px;
-  width: 100%;
+const Heading = styled.h2`
+  font-size: 40px;
+  color: #1b2a64;
   font-variant: small-caps;
-  border-bottom: 1px solid rgb(0, 195, 255);
-
-  color: #333;
   margin-bottom: 10px;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 20px;
-  width: 100%;
-
-  font-variant: small-caps;
-
-  color: #666;
-  margin-bottom: 40px;
+const Subheading = styled.p`
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 50px;
 `;
 
-const HighlightsGrid = styled.div`
+const CardsContainer = styled.div`
   display: flex;
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
 `;
 
-const HighlightCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 250px;
-
-  transition: transform 0.3s;
+const Card = styled.div`
+  background-color: #ffffff;
+  padding: 30px 20px;
+  width: 270px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
   }
-  @media (max-width: 769px) {
-    width: 95%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 90%;
   }
 `;
 
-const IconWrapper = styled.div`
+const Icon = styled.div`
   font-size: 3rem;
   color: #007bff;
   margin-bottom: 15px;
 `;
 
-const Number = styled.h3`
-  font-size: 2rem;
-  color: #333;
-  margin: 10px 0;
+const CardTitle = styled.h4`
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #1b2a64;
 `;
 
-const Label = styled.p`
-  font-size: 1rem;
+const CardDescription = styled.p`
+  font-size: 15px;
   color: #666;
+  line-height: 1.6;
 `;
-
-const Skills = () => {
-  return (
-    <HighlightsSection>
-      <Title>Our Skills</Title>
-      <Subtitle>Our team excels in the MERN stack, which include</Subtitle>
-      <HighlightsGrid>
-        <HighlightCard>
-          <IconWrapper>
-            {/* <FaCalendarAlt /> */}
-            <FaHome />
-          </IconWrapper>
-          <Number>Home Moving</Number>
-          <Label>
-            {" "}
-            Moving from house to house or city to city by road you are at the
-            right place.
-          </Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
-            {/* <FaLaptopCode /> */}
-            <FaCaravan />
-          </IconWrapper>
-          <Number>{/* <CountUp end={200} />+ */}Haulage Transport</Number>
-          <Label>
-            If you want to move inter-state, Suremeal Logistics is the best
-            solution.
-          </Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
-            <HiOutlineOfficeBuilding />
-          </IconWrapper>
-          <Number>Office Moving</Number>
-          <Label>
-            Want to move items urgently from your current office? Suremeal
-            Logistics is here for you
-          </Label>
-        </HighlightCard>
-        <HighlightCard>
-          <IconWrapper>
-            <FaDoorOpen />
-          </IconWrapper>
-          <Number>Door to Door</Number>
-          <Label>
-            Need a Fast, easy, and affordable door-to-door delivery? Contact us
-          </Label>
-        </HighlightCard>
-      </HighlightsGrid>
-    </HighlightsSection>
-  );
-};
-
-export default Skills;
